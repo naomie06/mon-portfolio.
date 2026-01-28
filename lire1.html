@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Portfolio</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "poppins", sans-serif;
+      }
+
+      body {
+        color: #ededed;
+        background-color: #121212;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 10%;
+        background: #051129;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .logo {
+        position: relative;
+        font-size: 25px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+      }
+
+      .navbar {
+        display: flex;
+      }
+
+      .navbar a {
+        display: inline-block;
+        font-size: 25px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 35px;
+        transition: 0.3s;
+        opacity: 0;
+        animation: slideTop 0.5s ease forwards;
+        animation-delay: calc(0.2s * var(--i));
+      }
+
+      .navbar a:hover {
+        color: rgb(96, 81, 233);
+      }
+
+      h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 9px;
+       /* width: 250px;*/
+        text-align: center;
+        padding-bottom: 15px;
+        margin-top: 90px;
+        text-decoration: underline;
+      }
+      p {
+        /*width: 250px;*/
+        font-size: 0.9rem;
+        margin: 50px;
+        line-height: 1.4;
+      }
+
+      @keyframes slideRight {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+      @keyframes slideTop {
+        0% {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 739px) {
+        header {
+          padding: 10px 20px;
+        }
+
+        header .navbar {
+          display: none;
+        }
+
+        .menu_toggle {
+          height: 50px;
+          width: 50px;
+          background-color: #fff;
+          position: fixed;
+          right: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 1000;
+          border-radius: 6px;
+        }
+
+        .menu_toggle::before {
+          position: absolute;
+          content: "";
+          height: 3px;
+          width: 28px;
+          background-color: rgb(96, 81, 233);
+          border-radius: 6px;
+          box-shadow: 0 10px 0 rgb(96, 81, 233);
+          transform: translateY(-10px);
+          transition: 0.5s;
+        }
+
+        .menu_toggle.active::before {
+          transform: rotate(135deg);
+          box-shadow: 0 0 0 rgb(96, 81, 233);
+        }
+
+        .menu_toggle::after {
+          position: absolute;
+          content: "";
+          height: 3px;
+          width: 28px;
+          background-color: rgb(96, 81, 233);
+          border-radius: 6px;
+          transform: translateY(10px);
+          transition: 0.5s;
+        }
+
+        .menu_toggle.active::after {
+          transform: rotate(-135deg);
+        }
+
+        header .navbar.responsive {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #101233;
+          backdrop-filter: blur(5px);
+          z-index: 50;
+          opacity: 0.7;
+        }
+
+        header .navbar.responsive a {
+          font-size: 20px;
+          margin: 20px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Naomie.</a>
+      <nav class="navbar">
+        <a href="index.html" style="--i: 2" class="active">Accueil</a>
+        <a href="propos.html" style="--i: 1">A propos</a>
+        <a href="services.html" style="--i: 3">Services</a>
+        <a href="competence.html" style="--i: 4">Competences</a>
+        <a href="projet.html" style="--i: 5">Projets</a>
+        <a href="contact.html" style="--i: 6">Contact</a>
+      </nav>
+      <div class="menu_toggle"></div>
+    </header>
+    <section>
+      <div>
+        <h2>D&eacute;veloppement des sites web</h2>
+        <p>
+          Cr&eacute;ation de sites web modernes, performants et responsives.
+          <br>
+          <br />
+          Int&eacute;gration frontend (html,css,javascript,...) et mise en place
+          de fonctionnalit&eacute;s dynamiques selon les besoins. <br />
+          <br>
+          Concevoir avec une approche m&eacute;thodique. <br />
+          <br>
+          j'accorde une attention particuli&egrave;re &agrave;
+          l'exp&eacute;rience utilisateur, &agrave; l'optimisation des
+          performances afin d'apporter des solutions fiables et
+          &eacute;volutives.
+        </p>
+      </div>
+    </section>
+    <script>
+      var menu_toggle = document.querySelector(".menu_toggle");
+      var navbar = document.querySelector(".navbar");
+      menu_toggle.onclick = function () {
+        menu_toggle.classList.toggle("active");
+        navbar.classList.toggle("responsive");
+      };
+    </script>
+  </body>
+</html>

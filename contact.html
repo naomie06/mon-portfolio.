@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>contact</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            color: #ededed;
+            background-color: #121212;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: #051129;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            position: relative;
+            font-size: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .navbar a {
+            display: inline-block;
+            font-size: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: .3s;
+            opacity: 0;
+            animation: slideTop .5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+
+        .navbar a:hover {
+            color: rgb(96, 81, 233);
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            gap: 3rem;
+            padding-left: 30px;
+            margin-top: 130px;
+        }
+        .contact-text h2 {
+            font-size: 90px;
+            line-height: 1;
+            text-align: center;
+        }
+        .contact-text h2 span {
+            color: rgb(96, 81, 233);
+        }
+        .contact-text h4 {
+            margin: 15px 0;
+            color: rgb(228, 228, 228);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .contact-text p {
+            color: rgb(177, 177, 177);
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 3rem;
+        }
+        .contact-list {
+            margin-bottom: 3rem;
+        }
+        .contact-list li {
+            margin-bottom: 10px;
+        }
+        .contact-list i {
+            display: inline-block;
+            color: rgb(96, 81, 233);
+            font-size: 20px;
+            font-weight: 600;
+            transition: all .40s ease;
+        }
+        .contact-list li a:hover {
+            transform: scale(1.01) translateY(-5px);
+            color: rgb(96, 81, 233);
+        }
+        .contact-icons i {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid rgb(96, 81, 233);
+            border-radius: 50%;
+            font-size: 20px;
+            color: rgb(96, 81, 233);
+            text-decoration: none;
+            margin: 30px 15px 30px 0;
+            transition: .5s ease;
+            opacity: 0;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+        .contact-icons i:hover {
+            background: rgb(96, 81, 233);
+            color: #000;
+            box-shadow: 0 0 20px rgb(96, 81, 233);
+        }
+        .contact-form form{
+            position: relative;
+        }
+        .contact-form form input, form textarea {
+            border: none;
+            outline: none;
+            width: 90%;
+            padding: 18px;
+            background: #555557;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        .contact-form textarea {
+            resize: none;
+            height: 220px;
+        }
+        .contact-form form .send {
+            display: inline-block;
+            padding: 14px 60px;
+            background: rgb(96, 81, 233);
+            border-radius: 40px;
+            font-size: 18px;
+            color: #081b29;
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 2s;
+            box-shadow: 0 0 5px rgb(96, 81, 233),
+                0 0 25px rgb(96, 81, 233);
+        }
+        .contact-form form .send:hover {
+            box-shadow: 0 0 5px rgb(119, 33, 218),
+                0 0 25px rgb(119, 33, 218), 0 0 50px rgb(119, 33, 218),
+                0 0 100px rgb(119, 33, 218), 0 0 200px rgb(119, 33, 218);
+        }
+        .last-text p {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: rgb(52, 54, 54);
+            font-weight: 300;
+            margin-top: 70px;
+        }
+        .top {
+            position: fixed;
+            bottom: 2.1rem;
+            right: 2.1rem;
+        }
+        .top i {
+            color: #000;
+            background: rgb(96, 81, 233);
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 0.5rem;
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideTop {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+        @media (max-width: 739px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            header .navbar {
+                display: none;
+            }
+
+            .menu_toggle {
+                height: 50px;
+                width: 50px;
+                background-color: #fff;
+                position: fixed;
+                right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 1000;
+                border-radius: 6px;
+            }
+
+            .menu_toggle::before {
+                position: absolute;
+                content: "";
+                height: 3px;
+                width: 28px;
+                background-color: rgb(96, 81, 233);
+                border-radius: 6px;
+                box-shadow: 0 10px 0 rgb(96, 81, 233);
+                transform: translateY(-10px);
+                transition: 0.5s;
+            }
+
+            .menu_toggle.active::before {
+                transform: rotate(135deg);
+                box-shadow: 0 0 0 rgb(96, 81, 233);
+            }
+
+            .menu_toggle::after {
+                position: absolute;
+                content: "";
+                height: 3px;
+                width: 28px;
+                background-color: rgb(96, 81, 233);
+                border-radius: 6px;
+                transform: translateY(10px);
+                transition: 0.5s;
+            }
+
+            .menu_toggle.active::after {
+                transform: rotate(-135deg);
+            }
+
+            header .navbar.responsive {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #101233;
+                backdrop-filter: blur(5px);
+                z-index: 50;
+                opacity: 0.7;
+            }
+
+            header .navbar.responsive a {
+                font-size: 20px;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Naomie.</a>
+        <nav class="navbar">
+            <a href="index.html" style="--i:2" class="active">Accueil</a>
+            <a href="propos.html" style="--i:1">A propos</a>
+            <a href="services.html" style="--i:3">Services</a>
+            <a href="competence.html" style="--i:4">Competences</a>
+            <a href="projet.html" style="--i:5">Projets</a>
+            <a href="contact.html" style="--i:6">Contact</a>
+        </nav>
+        <div class="menu_toggle"></div>
+    </header>
+    <section class="contact" id="contact">
+        <div class="contact-text">
+            <h2>Contactez <span>Moi</span></h2>
+            <h4>Travaillons ensemble</h4>
+            <p>Envie d'un site web moderne, d'une interface intuitive ou d'une base de donn&eacute;es bien con&ccedil;ue? <br>Je suis disponible pour collaborer sur vos projets. <br> &#128073 Contactez-moi, et donnons vie &agrave; vos id&eacute;es.</p>
+            <div class="contact-list">
+                <li><i class='bx bxs-send'></i> naomiejessica60@gmail.com</li>
+                <li><i class='bx bxs-phone'></i> 6 59 63 02 95</li>
+                <li><i class='bx bxs-phone'></i> 6 51 15 57 12</li>
+            </div>
+            <div class="contact-icons">
+                <a href="https://m.me/Nao Jess" target="_blank" rel="noopener noreferrer"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com//direct/Nao Jess" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram'></i></a>
+                <a href="https://wa.me/237659630295?text=Bonjour%2C%20je%20viens%20de%20visiter%20votre%20portfolio%20et%20j%27aimerais%20discuter%20d%27un%20projet%20avec%20vous." target="_blank" rel="noopener noreferrer"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://www.tiktok.com/@naomiejessica3" target="_blank" rel="noopener noreferrer"><i class='bx bxl-tiktok'></i></a>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form action="https://wa.me/237659630295?text=Bonjour%2C%20je%20viens%20de%20visiter%20votre%20portfolio%20et%20j%27aimerais%20discuter%20d%27un%20projet%20avec%20vous." target="_blank">
+                <input type="text" placeholder="Entrez Votre Nom" required>
+                <input type="email" placeholder="Entrez Votre Email" required>
+                <input type="text" placeholder="Entrez Votre Sujet" required>
+                <textarea name="" id="" cols="40" rows="10" placeholder="Entrez Votre Message"></textarea>
+                <input type="submit" value="Envoyer" class="send">
+            </form>
+        </div>
+    </section>
+    <div class="last-text">
+        <p>D&eacute;velopper avec amour par Naomie &copy 2025</p>
+    </div>
+    <a href="contact.html" class="top"><i class='bx bx-up-arrow-alt'></i></a>
+    <script>
+        var menu_toggle = document.querySelector(".menu_toggle");
+        var navbar = document.querySelector(".navbar");
+        menu_toggle.onclick = function () {
+            menu_toggle.classList.toggle("active");
+            navbar.classList.toggle("responsive");
+        };
+    </script>
+</body>
+
+</html>

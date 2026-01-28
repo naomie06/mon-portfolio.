@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>propos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            color: #ededed;
+            background-color: #121212;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: #051129;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            position: relative;
+            font-size: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: default;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .navbar a {
+            display: inline-block;
+            font-size: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: .3s;
+            opacity: 0;
+            animation: slideTop .5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+
+        .navbar a:hover {
+            color: rgb(96, 81, 233);
+        }
+
+        .apropos {
+            position: relative;
+             width: 105%;
+            justify-content: space-between;
+            height: 100vh;
+            display: flex;
+            /*grid-template-columns: repeat(2, 1fr);*/
+            align-items: center;
+            background-position: center;
+            gap: 1rem;
+            padding: 20px 7% 0;
+            background-size: cover;
+        }
+
+        .apropos-img img {
+            border-radius: 200px;
+            box-shadow: 0 0 5px rgb(119, 33, 218),
+                0 0 25px rgb(119, 33, 218), 0 0 50px rgb(119, 33, 218),
+                0 0 100px rgb(119, 33, 218);
+        }
+
+        .apropos-text h2 {
+            font-size: 40px;
+        }
+
+        .apropos-text h2 span {
+            color: rgb(96, 81, 233);
+        }
+
+        .apropos-text h4 {
+            font-size: 27px;
+            font-weight: 100;
+            color: #fff;
+            line-height: 1.7;
+            margin: 15px 0 30px;
+        }
+
+        .apropos-text p {
+            color: aliceblue;
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-box {
+            display: inline-block;
+            padding: 12px 28px;
+            background: rgb(96, 81, 233);
+            border-radius: 40px;
+            font-size: 16px;
+            color: #081b29;
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 2s;
+            box-shadow: 0 0 5px rgb(96, 81, 233),
+                0 0 25px rgb(96, 81, 233),
+        }
+
+        .btn-box:hover {
+            box-shadow: 0 0 5px rgb(119, 33, 218),
+                0 0 25px rgb(119, 33, 218), 0 0 50px rgb(119, 33, 218),
+                0 0 100px rgb(119, 33, 218), 0 0 200px rgb(119, 33, 218);
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        @keyframes slideTop {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+        @media (max-width: 739px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            header .navbar {
+                display: none;
+            }
+
+            .menu_toggle {
+                height: 50px;
+                width: 50px;
+                background-color: #fff;
+                position: fixed;
+                right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 1000;
+                border-radius: 6px;
+            }
+
+            .menu_toggle::before {
+                position: absolute;
+                content: "";
+                height: 3px;
+                width: 28px;
+                background-color: rgb(96, 81, 233);
+                border-radius: 6px;
+                box-shadow: 0 10px 0 rgb(96, 81, 233);
+                transform: translateY(-10px);
+                transition: 0.5s;
+            }
+
+            .menu_toggle.active::before {
+                transform: rotate(135deg);
+                box-shadow: 0 0 0 rgb(96, 81, 233);
+            }
+
+            .menu_toggle::after {
+                position: absolute;
+                content: "";
+                height: 3px;
+                width: 28px;
+                background-color: rgb(96, 81, 233);
+                border-radius: 6px;
+                transform: translateY(10px);
+                transition: 0.5s;
+            }
+
+            .menu_toggle.active::after {
+                transform: rotate(-135deg);
+            }
+
+            header .navbar.responsive {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #101233;
+                backdrop-filter: blur(5px);
+                z-index: 50;
+                opacity: 0.7;
+            }
+
+            header .navbar.responsive a {
+                font-size: 20px;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Naomie.</a>
+        <nav class="navbar">
+            <a href="index.html" style="--i:2" class="active">Accueil</a>
+            <a href="propos.html" style="--i:1">A propos</a>
+            <a href="services.html" style="--i:3">Services</a>
+            <a href="competence.html" style="--i:4">Competences</a>
+            <a href="projet.html" style="--i:5">Projets</a>
+            <a href="contact.html" style="--i:6">Contact</a>
+        </nav>
+        <div class="menu_toggle"></div>
+    </header>
+    <section class="apropos" id="apropos">
+        <div class="apropos-img">
+            <img src="img/me.jpg" width="300px" height="290px" style="margin-left: auto; margin-right: 100px; display: block;">
+        </div>
+        <div class="apropos-text">
+            <h2>A propos<span>De Moi</span></h2>
+            <h4>D&eacute;veloppeuse full-stack junior</h4>
+            <p>Je me nomme Njofang Deuffi Naomie Jessica &eacute;tudiante en g&eacute;nie logiciel niveau II &agrave; l'Institut Universitaire des Grandes Ecoles des Tropiques (IUGET), situ&eacute;e &agrave; Douala Bonamoussadi-Rond point maetur, &acirc;g&eacute;e de 20ans. 
+               <br>je suis une d&eacute;veloppeuse passionn&eacute;e par le g&eacute;nie logiciel et la cr&eacute;ation d'applications web modernes...</p>
+            <a href="surmoi.html" class="btn-box">Plus Sur Moi</a>
+        </div>
+    </section>
+    <script>
+        var menu_toggle = document.querySelector(".menu_toggle");
+        var navbar = document.querySelector(".navbar");
+        menu_toggle.onclick = function () {
+            menu_toggle.classList.toggle("active");
+            navbar.classList.toggle("responsive");
+        };
+    </script>
+</body>
+
+</html>

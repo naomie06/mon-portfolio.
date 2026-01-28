@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+  <head>
+    <title>competences</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "poppins", sans-serif;
+      }
+
+      body {
+        color: #ededed;
+        background-color: #121212;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 10%;
+        background: #051129;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .logo {
+        position: relative;
+        font-size: 25px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+      }
+
+      .navbar {
+        display: flex;
+      }
+
+      .navbar a {
+        display: inline-block;
+        font-size: 25px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 35px;
+        transition: 0.3s;
+        opacity: 0;
+        animation: slideTop 0.5s ease forwards;
+        animation-delay: calc(0.2s * var(--i));
+      }
+
+      .navbar a:hover {
+        color: rgb(96, 81, 233);
+      }
+
+      .sous-titre {
+        text-align: center;
+        font-size: 60px;
+        padding: 70px;
+      }
+
+      .sous-titre span {
+        color: rgb(96, 81, 233);
+      }
+
+      section {
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 40px 20px;
+      }
+      .container1 {
+        /*padding: 20px;*/
+      }
+
+      .bloc {
+        width: 50%;
+      }
+
+      .bloc2 {
+        left: 50%;
+        text-align: right;
+        padding-top: 40px;
+      }
+
+      .heading1 {
+        text-align: center;
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        text-decoration-thickness: 5px;
+      }
+
+      .heading1 span {
+        color: rgb(96, 81, 233);
+      }
+
+      .radial-bars {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+      }
+
+      .radial-bars .radial-bar {
+        width: 50%;
+        height: 170px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .radial-bars .radial-bar svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        width: 120px;
+        height: 160px;
+      }
+
+      .radial-bars .radial-bar .progress-bar {
+        stroke-width: 10;
+        stop-color: black;
+        fill: transparent;
+        stroke-dasharray: 502;
+        stroke-dashoffset: 502;
+        stroke-linecap: round;
+        animation: animate-bar 1s linear forwards;
+      }
+
+      @keyframes animate-bar {
+        100% {
+          stroke-dashoffset: -1;
+        }
+      }
+
+      .path {
+        stroke-width: 10;
+        stroke: rgb(96, 81, 233);
+        fill: transparent;
+        stroke-dasharray: 502;
+        stroke-dashoffset: 502;
+        stroke-linecap: round;
+      }
+
+      .path-1 {
+        animation: animate-path1 1s 1s linear forwards;
+      }
+
+      .path-2 {
+        animation: animate-path2 1s 1s linear forwards;
+      }
+
+      .path-3 {
+        animation: animate-path3 1s 1s linear forwards;
+      }
+
+      .path-4 {
+        animation: animate-path4 1s 1s linear forwards;
+      }
+
+      @keyframes animate-path1 {
+        100% {
+          stroke-dashoffset: 50;
+        }
+      }
+
+      @keyframes animate-path2 {
+        100% {
+          stroke-dashoffset: 170;
+        }
+      }
+
+      @keyframes animate-path3 {
+        100% {
+          stroke-dashoffset: 325;
+        }
+      }
+
+      @keyframes animate-path4 {
+        100% {
+          stroke-dashoffset: 360;
+        }
+      }
+
+      .radial-bar .percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 17px;
+        font-weight: 500;
+        animation: showText 0.5s 1s linear forwards;
+        opacity: 0;
+      }
+
+      .radial-bar .text {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        left: 50%;
+        bottom: -5px;
+        transform: translateX(-50px);
+        font-size: 17px;
+        font-weight: 500;
+        animation: showText 0.5s 1s linear forwards;
+        opacity: 0;
+      }
+
+      @keyframes showText {
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideRight {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideTop {
+        0% {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+      @media (max-width: 739px) {
+        header {
+          padding: 10px 20px;
+        }
+
+        header .navbar {
+          display: none;
+        }
+
+        .menu_toggle {
+          height: 50px;
+          width: 50px;
+          background-color: #fff;
+          position: fixed;
+          right: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 1000;
+          border-radius: 6px;
+        }
+
+        .menu_toggle::before {
+          position: absolute;
+          content: "";
+          height: 3px;
+          width: 28px;
+          background-color: rgb(96, 81, 233);
+          border-radius: 6px;
+          box-shadow: 0 10px 0 rgb(96, 81, 233);
+          transform: translateY(-10px);
+          transition: 0.5s;
+        }
+
+        .menu_toggle.active::before {
+          transform: rotate(135deg);
+          box-shadow: 0 0 0 rgb(96, 81, 233);
+        }
+
+        .menu_toggle::after {
+          position: absolute;
+          content: "";
+          height: 3px;
+          width: 28px;
+          background-color: rgb(96, 81, 233);
+          border-radius: 6px;
+          transform: translateY(10px);
+          transition: 0.5s;
+        }
+
+        .menu_toggle.active::after {
+          transform: rotate(-135deg);
+        }
+
+        header .navbar.responsive {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #101233;
+          backdrop-filter: blur(5px);
+          z-index: 50;
+          opacity: 0.7;
+        }
+
+        header .navbar.responsive a {
+          font-size: 20px;
+          margin: 20px 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Naomie.</a>
+      <nav class="navbar">
+        <a href="index.html" style="--i: 2" class="active">Accueil</a>
+        <a href="propos.html" style="--i: 1">A propos</a>
+        <a href="services.html" style="--i: 3">Services</a>
+        <a href="competence.html" style="--i: 4">Competences</a>
+        <a href="projet.html" style="--i: 5">Projets</a>
+        <a href="contact.html" style="--i: 6">Contact</a>
+      </nav>
+      <div class="menu_toggle"></div>
+    </header>
+    <section>
+      <div class="competences" id="competences"></div>
+      <div class="container1">
+        <h1 class="sous-titre">Mes <span>Competences</span></h1>
+        <div class="bloc">
+          <h2>
+            <ul>
+              <li>D&eacute;veloppement web</li>
+              <li>UX/UI Design (Figma)</li>
+              <li>Bases de Donn&eacute;es</li>
+              <li>D&eacute;veloppement d'applications</li>
+            </ul>
+          </h2>
+        </div>
+        <div class="bloc2">
+          <h1 class="heading1">Competences <span>Techniques</span></h1>
+          <div class="radial-bars">
+            <div class="radial-bar">
+              <svg x="0px" y="0px" viewBox="0 0 200 200">
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                <circle class="path path-1" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">90%</div>
+              <div class="text">
+                <i style="color: #c95d2e" class="bx bxl-html5"></i>HTML
+              </div>
+            </div>
+            <div class="radial-bar">
+              <svg x="0px" y="0px" viewBox="0 0 200 200">
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                <circle class="path path-2" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">60%</div>
+              <div class="text">
+                <i style="color: #147bbc" class="bx bxl-css3"></i>CSS
+              </div>
+            </div>
+            <div class="radial-bar">
+              <svg x="0px" y="0px" viewBox="0 0 200 200">
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                <circle class="path path-3" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">30%</div>
+              <div class="text">
+                <i style="color: #bebc1e" class="bx bxl-javascript"></i
+                >JAVASCRIPT
+              </div>
+            </div>
+            <div class="radial-bar">
+              <svg x="0px" y="0px" viewBox="0 0 200 200">
+                <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                <circle class="path path-4" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="percentage">25%</div>
+              <div class="text">
+                <i style="color: #c32ec9" class="bx bxl-python"></i>PYTHON
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      var menu_toggle = document.querySelector(".menu_toggle");
+      var navbar = document.querySelector(".navbar");
+      menu_toggle.onclick = function () {
+        menu_toggle.classList.toggle("active");
+        navbar.classList.toggle("responsive");
+      };
+    </script>
+  </body>
+</html>
